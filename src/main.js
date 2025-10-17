@@ -23,7 +23,6 @@ function handlerSubmitForm(event) {
 
   if (!query) {
     iziToast.warning({
-      // title: 'Caution',
       message: 'Please enter a search term!',
       position: 'topRight',
       theme: 'dark',
@@ -40,13 +39,13 @@ function handlerSubmitForm(event) {
       .then(data => {
         if (!data.hits.length) {
           iziToast.warning({
-            title: 'Caution',
             message:
               'Sorry, there are no images matching your search query. Please try again!',
             position: 'topRight',
             theme: 'dark',
             backgroundColor: 'red',
             messageSize: '16',
+            timeout: 5000,
           });
           return;
         }
@@ -59,6 +58,7 @@ function handlerSubmitForm(event) {
           position: 'topRight',
           theme: 'dark',
           backgroundColor: 'red',
+          timeout: 5000,
         });
       })
       .finally(() => {
